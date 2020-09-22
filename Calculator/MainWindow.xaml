@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="Caluclator" Height="450" Width="800" MinWidth="30" MinHeight="30">
+    <Grid ShowGridLines="False" Margin="0,0,55,38">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" x:Name="txt" HorizontalAlignment="Center" Height="40"></TextBlock>
+        <Button Grid.Row="3" Grid.Column="1" x:Name="btn1">1</Button>
+        <Button Grid.Row="3" Grid.Column="3" x:Name="btn2">2</Button>
+        <Button Grid.Row="3" Grid.Column="5" x:Name="btn3">3</Button>
+        <Button Grid.Row="5" Grid.Column="1" x:Name="btn4">4</Button>
+        <Button Grid.Row="5" Grid.Column="3" x:Name="btn5">5</Button>
+        <Button Grid.Row="5" Grid.Column="5" x:Name="btn6">6</Button>
+        <Button Grid.Row="7" Grid.Column="1" x:Name="btn7">7</Button>
+        <Button Grid.Row="7" Grid.Column="3" x:Name="btn8">8</Button>
+        <Button Grid.Row="7" Grid.Column="5" x:Name="btn9">9</Button>
+        <Button Grid.Row="9" Grid.Column="3" x:Name="btn0">0</Button>
+        <Button Grid.Row="3" Grid.Column="7" x:Name="btnPlus">+</Button>
+        <Button Grid.Row="3" Grid.Column="9" x:Name="btnResult" Grid.RowSpan="5">=</Button>
+        <Button Grid.Row="5" Grid.Column="7" x:Name="btnMinus">-</Button>
+        <Button Grid.Row="7" Grid.Column="7" x:Name="btnMulti">*</Button>
+        <Button Grid.Row="9" Grid.Column="7" x:Name="btnDiv">/</Button>
+        <Button Grid.Row="9" Grid.Column="9" x:Name="btnDelete">C</Button>
     </Grid>
 </Window>
