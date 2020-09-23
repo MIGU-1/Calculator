@@ -20,6 +20,11 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int _num1;
+        private int _num2;
+        private char opr;
+        private double _result;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -44,47 +49,65 @@ namespace Calculator
         private void Btn_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            char operatorSign = ' ';
-            int[] numbers;
 
             switch (btn.Content.ToString())
             {
                 case "+":
                     txt.Text += btn.Content.ToString();
-                    operatorSign = Convert.ToChar(btn.Content.ToString());
+                    opr = Convert.ToChar(btn.Content.ToString());
                     break;
                 case "-":
                     txt.Text += btn.Content.ToString();
-                    operatorSign = Convert.ToChar(btn.Content.ToString());
+                    opr = Convert.ToChar(btn.Content.ToString());
                     break;
                 case "*":
                     txt.Text += btn.Content.ToString();
-                    operatorSign = Convert.ToChar(btn.Content.ToString());
+                    opr = Convert.ToChar(btn.Content.ToString());
                     break;
                 case "/":
                     txt.Text += btn.Content.ToString();
-                    operatorSign = Convert.ToChar(btn.Content.ToString());
+                    opr = Convert.ToChar(btn.Content.ToString());
                     break;
                 case "C":
                     txt.Text = "";
                     break;
                 case "=":
-                    numbers = FindNumbers(txt.Text, operatorSign);
+                    FindNumbers(txt.Text);
+
+                    switch (opr)
+                    {
+                        case '+':
+                            _result = _num1 + _num2;
+                            break;
+                        case '-':
+                            _result = _num1 - _num2;
+                            break;
+                        case '*':
+                            _result = _num1 * _num2;
+                            break;
+                        case '/':
+                            if (_num2 == 0)
+                                txt.Text = "Error";
+                            else
+                                _result = (double)_num1 / (double)_num2;
+                            break;
+                    }
+
+                    if (_num2 != 0)
+                        txt.Text = _result.ToString();
                     break;
+
                 default:
                     txt.Text += btn.Content.ToString();
                     break;
             }
         }
 
-        private int[] FindNumbers(string text, char sign)
+        private void FindNumbers(string text)
         {
-            string[] strNum = text.Split(sign);
-            return new int[]
-            {
-                Convert.ToInt32(strNum[0]),
-                Convert.ToInt32(strNum[1])
-            };
+            string[] strNum = text.Split(opr);
+            _num1 = Convert.ToInt32(strNum[0]);
+            _num2 = Convert.ToInt32(strNum[1]);
         }
     }
 }
